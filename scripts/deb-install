@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# =========================
+# Colors
+# =========================
+YELLOW='\e[93m'
+GREEN='\e[92m'
+RED='\e[91m'
+RESET='\e[0m'
+
+# =========================
+# Get package path
+# =========================
+if [ -z "$1" ]; then
+    echo -e "\n${YELLOW}Enter the path to the .deb package to install:${RESET}"
+    read -e -r -p "> " FILE
+    echo
+else
+    FILE="$1"
+fi
+
+# =========================
+# Validation
+# =========================
+
+# Resolve to an absolute path
+FILE="$(realpath "$FILE" 2>/dev/null)"
+
+if [ -z "$FILE" ] || [ ! -f "$FILE" ]; then
+    echo -e "${RED}❌ File not found.${RESET}"
+    exit 1
+fi
+
+if [[ "$FILE" != *.deb ]]; then
+    echo -e "${RED}❌ The specified file is not a .deb package.${RESET}"
+    exit 1
+fi
+
+# =========================
+# Installation
+# =========================
+
+echo -e "${YELLOW}➡️  Installing:${RESET} $FILE"
+
+if sudo apt install -y "$FILE"; then
+    echo
+    echo -e "${GREEN}✅ Installation completed successfully.${RESET}"
+
+    echo -e "${YELLOW}🧹 Removing package file...${RESET}"
+
+    if rm -f "$FILE"; then
+        echo -e "${GREEN}✅ Package file removed.${RESET}"
+    else
+        echo -e "${RED}⚠️ Failed to remove the package file.${RESET}"
+    fi
+else
+    echo
+    echo -e "${RED}❌ Installation failed. The package file will not be removed.${RESET}"
+    exit 1
+fi
