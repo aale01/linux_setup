@@ -36,7 +36,7 @@ sudo -u alebe env DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u alebe)/b
 echo "[+] Restoring from linux_backup..."
  
 if [ -d "$HOME/linux_backup" ]; then
-    rsync -a --backup --backup-dir="$HOME/.pre-setup-backup" "$HOME/linux_backup/" "$HOME/"
+    rsync -a -v --backup --backup-dir="$HOME/.pre-setup-backup" --exclude=".git/" "$HOME/linux_backup/" "$HOME/"
     rm -rf ~/.git
     sudo cp "$HOME/linux_backup/grub" /etc/default/grub
     sudo update-grub
