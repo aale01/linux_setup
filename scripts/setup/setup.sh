@@ -88,6 +88,9 @@ sudo apt install -y \
 	tree jq file \
 	lsof npm
 
+# LazyVim package
+bash ./setup-lazyvim-package.sh
+
 # =========================
 # NEOVIM INSTALL
 # =========================
@@ -104,15 +107,6 @@ if ! grep -q "$NVIM_BIN" "$HOME/.bashrc.d/.bashrc" 2>/dev/null && ! grep -q "$NV
 	echo -e "\e[1;31m  --------    Aggiungere  /opt/nvim-linux-x86_64/bin  al path    --------\e[0m"
 	# echo "export PATH=\"$NVIM_BIN:\$PATH\"" >> "$HOME/.bashrc"
 fi
-
-sudo apt install -y xclip
-
-# install tree-sitter-cli
-mkdir -p ~/.npm-global
-npm config set prefix '~/.npm-global'
-echo 'export PATH=$HOME/.npm-global/bin:$PATH' >>~/.bashrc
-source ~/.bashrc
-npm install -g tree-sitter-cli
 
 # =========================
 # LAZYVIM INSTALL
