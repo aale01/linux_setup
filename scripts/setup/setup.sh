@@ -175,6 +175,13 @@ echo "[+] Setting up hibernation..."
 bash ./setup-hibernation.sh
 
 # =========================
+# SOFTWARES
+# =========================
+echo "[+] Installing additional softwares..."
+
+bash ./setup_softwares.sh
+
+# =========================
 # CLEANUP
 # =========================
 echo "[+] Cleaning up..."
