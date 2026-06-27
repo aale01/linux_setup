@@ -1,9 +1,0 @@
-[00:00:55 2026-06-26] FETCHING Version 2.43.2
-[00:00:55 2026-06-26] CREATING /home/alebe/.spicetify
-[00:00:55 2026-06-26] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.43.2/spicetify-2.43.2-linux-amd64.tar.gz
-[00:00:56 2026-06-26] EXTRACTING /home/alebe/.spicetify/spicetify.tar.gz
-[00:00:56 2026-06-26] SETTING EXECUTABLE PERMISSIONS TO /home/alebe/.spicetify/spicetify
-[00:00:56 2026-06-26] REMOVING /home/alebe/.spicetify/spicetify.tar.gz
-[00:00:56 2026-06-26] spicetify path already set in /home/alebe/.bashrc, continuing...
-[00:00:56 2026-06-26] spicetify v2.43.2 was installed successfully to /home/alebe/.spicetify
-[00:00:56 2026-06-26] Run 'spicetify --help' to get started
