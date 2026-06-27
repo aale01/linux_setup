@@ -86,7 +86,7 @@ sudo apt install -y \
 	htop tmux \
 	unzip zip tar \
 	tree jq file \
-	lsof
+	lsof npm
 
 # =========================
 # NEOVIM INSTALL
@@ -106,6 +106,13 @@ if ! grep -q "$NVIM_BIN" "$HOME/.bashrc.d/.bashrc" 2>/dev/null && ! grep -q "$NV
 fi
 
 sudo apt install -y xclip
+
+# install tree-sitter-cli
+mkdir -p ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo 'export PATH=$HOME/.npm-global/bin:$PATH' >>~/.bashrc
+source ~/.bashrc
+npm install -g tree-sitter-cli
 
 # =========================
 # LAZYVIM INSTALL
