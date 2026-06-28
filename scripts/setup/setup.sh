@@ -79,14 +79,7 @@ sudo apt update && sudo apt upgrade -y
 # =========================
 echo "[+] Installing base tools..."
 
-sudo apt install -y \
-	build-essential \
-	curl wget git \
-	vim nano \
-	htop tmux \
-	unzip zip tar \
-	tree jq file \
-	lsof npm
+bash ./setup-packages.sh
 
 # LazyVim package
 bash ./setup-lazyvim-package.sh
