@@ -42,6 +42,19 @@ info "Installazione dipendenze base..."
 sudo apt install -y wget tar gzip xz-utils
 
 ########################################
+# GOOGLE CHROME
+########################################
+if command -v google-chrome >/dev/null 2>&1; then
+	warning "VS Code già installato"
+else
+	info "Installazione Google Chrome..."
+	wget --show-progress -O google-chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+	sudo apt install -y ./google-chrome.deb
+	rm google-chrome.deb
+	success "Google Chrome installato"
+fi
+
+########################################
 # VS CODE
 ########################################
 if command -v code >/dev/null 2>&1; then

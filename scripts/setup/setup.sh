@@ -172,7 +172,7 @@ bash ./setup-hibernation.sh
 # =========================
 echo "[+] Installing additional softwares..."
 
-bash ./setup_softwares.sh
+bash ./setup-softwares.sh
 
 # =========================
 # CLEANUP
