@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt install -y xclip fzf wezterm \
+sudo apt install -y xclip fzf \
 	imagemagick \
 	texlive-latex-base \
 	python3-pynvim \

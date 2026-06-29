@@ -26,13 +26,15 @@ sudo -u $USER git clone git@github.com:aale01/LazyVim_config.git "$HOME/.config/
 # =========================
 echo "[+] Installing Meslo Nerd Font..."
 
-cd /tmp
-curl -L -o meslo.zip \
-	https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip
+{
+	cd /tmp
+	curl -L -o meslo.zip \
+		https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip
 
-mkdir -p "$HOME/.local/share/fonts"
-unzip -o meslo.zip -d "$HOME/.local/share/fonts"
-rm -f /tmp/meslo.zip
-fc-cache -fv
+	mkdir -p "$HOME/.local/share/fonts"
+	unzip -o meslo.zip -d "$HOME/.local/share/fonts"
+	rm -f /tmp/meslo.zip
+	fc-cache -fv
+}
 
 exec ./setup-5.sh

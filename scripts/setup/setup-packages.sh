@@ -24,10 +24,10 @@ LOG_FILE="/var/log/setup_$(date +%Y%m%d_%H%M%S).log"
 FAILED_PKGS=()
 INSTALLED_COUNT=0
 
-log()     { echo -e "${BLUE}[INFO]${RESET}  $*" | tee -a "$LOG_FILE"; }
-ok()      { echo -e "${GREEN}[OK]${RESET}    $*" | tee -a "$LOG_FILE"; }
-warn()    { echo -e "${YELLOW}[WARN]${RESET}  $*" | tee -a "$LOG_FILE"; }
-error()   { echo -e "${RED}[ERROR]${RESET} $*" | tee -a "$LOG_FILE"; }
+log() { echo -e "${BLUE}[INFO]${RESET}  $*" | tee -a "$LOG_FILE"; }
+ok() { echo -e "${GREEN}[OK]${RESET}    $*" | tee -a "$LOG_FILE"; }
+warn() { echo -e "${YELLOW}[WARN]${RESET}  $*" | tee -a "$LOG_FILE"; }
+error() { echo -e "${RED}[ERROR]${RESET} $*" | tee -a "$LOG_FILE"; }
 section() { echo -e "\n${BOLD}━━━  $*  ━━━${RESET}\n" | tee -a "$LOG_FILE"; }
 
 # ------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ REAL_USER="${SUDO_USER:-$USER}"
 
 echo -e "${BOLD}"
 echo "╔══════════════════════════════════════════╗"
-echo "║        Setup Ubuntu — $(date +%Y-%m-%d)         ║"
+echo "║        Setup Ubuntu — $(date +%Y-%m-%d)  ║"
 echo "╚══════════════════════════════════════════╝"
 echo -e "${RESET}"
 log "Log: $LOG_FILE"
@@ -50,6 +50,7 @@ log "Utente: $REAL_USER"
 # ------------------------------------------------------------------------------
 # Controllo file YAML
 # ------------------------------------------------------------------------------
+
 [[ -f "$PACKAGES_FILE" ]] || { error "File non trovato"; exit 1; }
 
 safe_apt_update() {
@@ -73,7 +74,6 @@ if ! command -v yq &>/dev/null; then
       -o /usr/local/bin/yq
 
     chmod +x /usr/local/bin/yq
-fi
 
 ok "yq pronto"
 
@@ -288,9 +288,15 @@ done
 # ==============================================================================
 # STEP 7 — Pulizia
 # ==============================================================================
+<<<<<<< HEAD
 section "STEP 7 — Pulizia"
 apt-get autoremove -y >> "$LOG_FILE" 2>&1
 apt-get autoclean  -y >> "$LOG_FILE" 2>&1
+=======
+section "STEP 8 — Pulizia"
+apt-get autoremove -y >>"$LOG_FILE" 2>&1
+apt-get autoclean -y >>"$LOG_FILE" 2>&1
+>>>>>>> da5a71c (some other changes)
 ok "Cache apt ripulita"
 
 # ==============================================================================
@@ -304,15 +310,15 @@ echo ""
 echo -e "${GREEN}✔ Installati: ${INSTALLED_COUNT} pacchetti${RESET}"
 
 if [[ ${#FAILED_PKGS[@]} -gt 0 ]]; then
-    echo ""
-    echo -e "${RED}✘ Falliti (${#FAILED_PKGS[@]}):${RESET}"
-    for p in "${FAILED_PKGS[@]}"; do
-        echo -e "  ${RED}•${RESET} $p"
-    done
-    echo ""
-    warn "Dettagli nel log: $LOG_FILE"
+	echo ""
+	echo -e "${RED}✘ Falliti (${#FAILED_PKGS[@]}):${RESET}"
+	for p in "${FAILED_PKGS[@]}"; do
+		echo -e "  ${RED}•${RESET} $p"
+	done
+	echo ""
+	warn "Dettagli nel log: $LOG_FILE"
 else
-    echo -e "${GREEN}✔ Nessun errore!${RESET}"
+	echo -e "${GREEN}✔ Nessun errore!${RESET}"
 fi
 
 echo ""

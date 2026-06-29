@@ -17,6 +17,7 @@ if ! grep -q "$NVIM_BIN" "$HOME/.bashrc.d/.bashrc" 2>/dev/null && ! grep -q "$NV
 	# echo "export PATH=\"$NVIM_BIN:\$PATH\"" >> "$HOME/.bashrc"
 fi
 
+echo "[+] Installing LazyVim packages..."
 # LazyVim package
 sudo bash ./setup-lazyvim-package.sh
 

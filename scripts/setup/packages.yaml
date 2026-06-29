@@ -119,17 +119,6 @@ external:
   - id: spotify
     enabled: false
 
-github_releases:
-  - name: lazygit
-    repo: jesseduffield/lazygit
-    binary: lazygit
-    asset: "lazygit_{version}_Linux_x86_64.tar.gz"
-
-  - name: glow
-    repo: charmbracelet/glow
-    binary: glow
-    asset: "glow_{version}_Linux_x86_64.tar.gz"
-
 npm:
   - typescript
   - nodemon
