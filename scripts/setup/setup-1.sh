@@ -11,6 +11,8 @@ HOME="/home/$USER"
 # Richiedi sudo subito
 sudo -v
 
+sudo apt install -y curl
+
 # =========================
 # KEYBOARD LAYOUT
 # =========================

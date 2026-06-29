@@ -15,7 +15,6 @@ apt:
     - gettext
     - gnupg
     - grep
-    - grub-efi-amd64-signed
     - gzip
     - hostname
     - linux-firmware
@@ -34,46 +33,29 @@ apt:
   development:
     - autoconf
     - automake
-    - bear
     - build-essential
     - clang
-    - clangd
     - cmake
-    - dkms
     - g++
     - gcc
     - gdb
-    - libbsd-dev
-    - libreadline-dev
-    - libtool
-    - libtool-bin
-    - libxext-dev
-    - lldb
     - make
-    - manpages-dev
     - meson
     - ninja-build
     - pkg-config
-    - strace
     - valgrind
-    - zlib1g-dev
 
   python:
     - python3
-    - python3-autopep8
     - python3-pip
     - python3-venv
-    - python3.12-venv
 
   shell_terminal:
     - bash-completion
-    - cmatrix
-    - screen
     - tmux
     - zsh
 
   editors_git:
-    - etckeeper
     - git
     - neovim
     - vim
@@ -81,24 +63,15 @@ apt:
   cli_modern:
     - bat
     - duf
-    - dust
-    - eza
     - fd-find
     - fzf
     - jq
-    - moreutils
-    - ncdu
-    - plocate
     - ripgrep
     - tree
     - yq
 
   network_security:
     - dnsutils
-    - firejail
-    - firejail-profiles
-    - iftop
-    - net-tools
     - nmap
     - openssh-client
     - openssh-server
@@ -106,76 +79,61 @@ apt:
     - wget
 
   monitoring:
-    - btop
-    - hdparm
     - htop
-    - inxi
     - iotop
     - lm-sensors
     - lsof
-    - nvme-cli
-    - pciutils
     - smartmontools
     - sysstat
-    - usbutils
 
   virtualization:
     - gnome-boxes
     - libvirt-clients
     - libvirt-daemon-system
-    - podman
     - qemu-system-x86
     - virt-manager
 
-  multimedia_docs:
+  multimedia:
     - ffmpeg
     - imagemagick
-    - latexmk
-    - mesa-utils
-    - poppler-utils
-    - ubuntu-restricted-extras
     - vlc
-    - zathura
-    - zathura-pdf-poppler
 
-  gnome_desktop:
-    - dconf-editor
+  desktop:
     - flatpak
-    - fwupd
-    - gnome-shell-extension-manager
     - gnome-tweaks
-    - gnome-user-docs-it
     - wl-clipboard
-    - xclip
-
-  disk_recovery:
-    - extundelete
-    - gparted
-    - testdisk
-
+    
 # Pacchetti installati tramite repo esterni (gestiti dallo script)
 external:
-  nodesource:
+  - id: nodesource
+    enabled: true
     version: "22"
     packages:
       - nodejs
-      - npm
 
-  github_cli:
+  - id: github-cli
+    enabled: true
     packages:
       - gh
 
-  github_releases:
-    - name: lazygit
-      repo: jesseduffield/lazygit
-      binary: lazygit
-      asset: "lazygit_{version}_Linux_x86_64.tar.gz"
+  - id: spotify
+    enabled: false
 
-    - name: glow
-      repo: charmbracelet/glow
-      binary: glow
-      asset: "glow_{version}_Linux_x86_64.tar.gz"
+github_releases:
+  - name: lazygit
+    repo: jesseduffield/lazygit
+    binary: lazygit
+    asset: "lazygit_{version}_Linux_x86_64.tar.gz"
 
-  libvirt_groups:
-    - libvirt
-    - kvm
+  - name: glow
+    repo: charmbracelet/glow
+    binary: glow
+    asset: "glow_{version}_Linux_x86_64.tar.gz"
+
+npm:
+  - typescript
+  - nodemon
+
+groups:
+  - libvirt
+  - kvm
