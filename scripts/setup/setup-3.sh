@@ -20,4 +20,4 @@ fi
 # LazyVim package
 sudo bash ./setup-lazyvim-package.sh
 
-sudo exec ./setup-4.sh
+exec ./setup-4.sh

@@ -69,4 +69,4 @@ echo 'source ~/.bashrc.d/.bashrc' >"$HOME/.bashrc"
 source ~/.bashrc
 # Nota: source qui non ha effetto utile nello script, verrà applicato al prossimo login
 
-sudo exec ./setup-2.sh
+exec ./setup-2.sh

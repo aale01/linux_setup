@@ -12,4 +12,4 @@ echo "[+] Installing base tools..."
 
 sudo bash ./setup-packages.sh
 
-sudo exec ./setup-3.sh
+exec ./setup-3.sh

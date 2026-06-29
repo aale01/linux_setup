@@ -35,4 +35,4 @@ unzip -o meslo.zip -d "$HOME/.local/share/fonts"
 rm -f /tmp/meslo.zip
 fc-cache -fv
 
-sudo exec ./setup-5.sh
+exec ./setup-5.sh
