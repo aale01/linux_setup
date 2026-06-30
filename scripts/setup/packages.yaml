@@ -99,6 +99,7 @@ apt:
     - vlc
 
   desktop:
+    - copyq
     - flatpak
     - gnome-tweaks
     - wl-clipboard

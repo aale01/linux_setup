@@ -5,13 +5,15 @@ curl -sS https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.asc |
 echo "deb https://repository.spotify.com stable non-free" |
 	sudo tee /etc/apt/sources.list.d/spotify.list
 
+sudo apt-get update && sudo apt-get install -y spotify-client
+
 # Grant write permissions to Spotify’s directory:
 sudo chmod a+wr /usr/share/spotify
 sudo chmod a+wr /usr/share/spotify/Apps -R
 
-sudo apt-get update && sudo apt-get install -y spotify-client
-
 echo "[+] Avvia Spotify e fai il login e attendi almeno 60 secondi..."
+
+(spotify)
 
 for ((i = 60; i >= 0; i--)); do
 	printf "\r⏳ %2d secondi rimanenti" "$i"
