@@ -1,6 +1,0 @@
-
-# SyncTeX
-set synctex true
-
-# Editor da usare per inverse search
-set synctex-editor-command "texlab inverse-search -i %{input} -l %{line}"
