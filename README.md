@@ -24,21 +24,22 @@ Placeholders in this README should be adjusted to match the specific scripts and
 ## Quickstart
 
 1. Clone the repository:
-
+```bash
    git clone https://github.com/aale01/linux_setup.git
    cd linux_setup
-
+```
 2. Inspect scripts before running. For example:
-
+```bash
    ls -1
    sed -n '1,120p' scripts/setup.sh
-
+```
 3. Run a script in a dry-run or review mode if available. If a script requires sudo, run it explicitly:
 
-   # Inspect then run (example)
+   ### Inspect then run (example)
+```bash
    ./scripts/install-packages.sh --dry-run
    sudo ./scripts/install-packages.sh
-
+```
 Replace the above script names with the actual script(s) present in the repository.
 
 ## Common scripts (examples)
@@ -74,7 +75,7 @@ Contributions are welcome. Please:
 
 ## License
 
-Add a license file to the repository (e.g., MIT, Apache-2.0) and reference it here. If you want a suggestion, MIT is a permissive option.
+
 
 ## Contact
 
