@@ -21,6 +21,9 @@ Placeholders in this README should be adjusted to match the specific scripts and
 - sudo or root privileges for system-wide operations.
 - Internet access for package installation (unless using an offline package cache).
 
+## ⚠️ Warning
+These configuration files may overwrite your existing settings in `~/.config` or your `Home` directory. Always back up your important files before proceeding.
+
 ## Quickstart
 
 1. Clone the repository:
@@ -75,7 +78,7 @@ Contributions are welcome. Please:
 
 ## License
 
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
