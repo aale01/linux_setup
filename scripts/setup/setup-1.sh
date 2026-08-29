@@ -37,13 +37,13 @@ sudo -u alebe env DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u alebe)/b
 echo "[+] Restoring from linux_backup..."
 
 if [ -d "$HOME/linux_backup" ]; then
-	rsync -a -v --backup --backup-dir="$HOME/.pre-setup-backup" --exclude=".git/" "$HOME/linux_backup/" "$HOME/"
+	rsync -a -v --backup --backup-dir="$HOME/.pre-setup-backup" --exclude=".git/" "$HOME/linux_setup/" "$HOME/"
 	rm -rf ~/.git
-	sudo cp "$HOME/linux_backup/grub" /etc/default/grub
+	sudo cp "$HOME/linux_setup/grub" /etc/default/grub
 	sudo update-grub
 	# rsync -a --backup --backup-dir="$HOME/.pre-setup-backup/.config" "$HOME/linux_backup/.config/" "$HOME/.config/"    -----   RIDONDANTE !
 else
-	echo "AVVISO: $HOME/linux_backup non trovato, skip."
+	echo "AVVISO: $HOME/linux_setup non trovato, skip."
 fi
 
 # =========================
