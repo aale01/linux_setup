@@ -10,6 +10,8 @@ WORKDIR="/opt"
 TMPDIR=$(mktemp -d)
 ORIGINAL_FOLDER=$(pwd)
 
+OWNER="${SUDO_USER:-$(id -un)}"
+
 cleanup() {
 	rm -rf "$TMPDIR"
 }
@@ -168,7 +170,7 @@ else
 	# writable": la rendo quindi di proprieta' dell'utente che lancia lo
 	# script (la cartella /opt resta comunque root, solo il suo contenuto
 	# diventa scrivibile da te).
-	sudo chown -R "$(id -u):$(id -g)" "$WORKDIR/clion"
+	sudo chown -R "$OWNER:$OWNER" "$WORKDIR/clion"
 
 	chmod +x "$WORKDIR/clion/bin/clion.sh"
 
@@ -209,7 +211,7 @@ else
 
 	# Vedi commento equivalente nella sezione CLion: serve per il self-updater
 	# interno dell'IDE.
-	sudo chown -R "$(id -u):$(id -g)" "$WORKDIR/pycharm"
+	sudo chown -R "$OWNER:$OWNER" "$WORKDIR/pycharm"
 
 	chmod +x "$WORKDIR/pycharm/bin/pycharm.sh"
 
@@ -271,19 +273,6 @@ if command -v slack >/dev/null 2>&1 || snap list slack >/dev/null 2>&1; then
 else
 	info "Installazione Slack (snap)..."
 	sudo snap install slack
-	success "Slack installato"
-fi
-
-########################################
-# AGGIORNAMENTO CACHE MENU/ICONE
-########################################
-info "Aggiornamento database applicazioni..."
-sudo update-desktop-database /usr/share/applications 2>/dev/null || true
-
-echo ""
-success "INSTALLAZIONE COMPLETATA"
-
-cd "$ORIGINAL_FOLDER"
 	success "Slack installato"
 fi
 

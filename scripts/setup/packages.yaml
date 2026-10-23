@@ -104,6 +104,11 @@ apt:
     - flatpak
     - gnome-tweaks
     - wl-clipboard
+    - gnome-terminal
+    - policykit-1
+    - wmctrl
+    - x11-xserver-utils
+    - zenity
     
 # Pacchetti installati tramite repo esterni (gestiti dallo script)
 external:

@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Eseguito da systemd dopo sospensione/ibernazione.
+# Gli argomenti sono: pre|post e suspend|hibernate|hybrid-sleep.
+
+case "${1:-}/${2:-}" in
+post/hibernate | post/hybrid-sleep)
+	;;
+*)
+	exit 0
+	;;
+esac
+
+# Cerca le sessioni utente attive.
+for RUNTIME_DIR in /run/user/[0-9]*; do
+	[[ -d "$RUNTIME_DIR" ]] || continue
+	[[ -S "$RUNTIME_DIR/bus" ]] || continue
+
+	USER_ID="${RUNTIME_DIR##*/}"
+
+	# Accetta soltanto directory con un UID numerico.
+	[[ "$USER_ID" =~ ^[0-9]+$ ]] || continue
+	((USER_ID == 0)) && continue
+
+	# Ricava nome utente e home dal database degli account.
+	USER_ENTRY="$(getent passwd "$USER_ID")" || continue
+
+	IFS=: read -r \
+		USER_NAME PASSWORD USER_UID USER_GID GECOS USER_HOME USER_SHELL \
+		<<<"$USER_ENTRY"
+
+	[[ -n "$USER_NAME" && -n "$USER_HOME" ]] || continue
+
+	# Interessa soltanto agli utenti che hanno installato il servizio.
+	SERVICE_FILE="$USER_HOME/.config/systemd/user/apt-daily-update-resume.service"
+	[[ -f "$SERVICE_FILE" ]] || continue
+
+	# Avvia il servizio nel gestore systemd dell'utente.
+	if ! runuser -u "$USER_NAME" -- \
+		env \
+		XDG_RUNTIME_DIR="$RUNTIME_DIR" \
+		DBUS_SESSION_BUS_ADDRESS="unix:path=$RUNTIME_DIR/bus" \
+		systemctl --user start --no-block \
+		apt-daily-update-resume.service; then
+
+		logger -t apt-update-resume-hook \
+			"Impossibile avviare apt-daily-update-resume.service per $USER_NAME"
+	fi
+done
+
+exit 0

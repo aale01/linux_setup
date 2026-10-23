@@ -5,7 +5,7 @@
 # =========================
 echo "[+] Installing Spotify..."
 
-sudo bash ./setup-spotify.sh
+bash ./setup-spotify.sh
 
 # =========================
 # Spicetify
@@ -14,7 +14,7 @@ sudo bash ./setup-spotify.sh
 # Verifica il contenuto prima di eseguire in ambienti critici.
 echo "[+] Installing Spicetify..."
 
-sudo bash setup-spicetify.sh
+bash setup-spicetify.sh
 
 # =========================
 # Spicetify - History in Sidebar
@@ -22,21 +22,28 @@ sudo bash setup-spicetify.sh
 
 echo "[+] Installazione Spicetify history-in-sidebar..."
 
-sudo bash setup-history-in-sidebar.sh
+bash setup-history-in-sidebar.sh
 
 # =========================
 # HIBERNATION
 # =========================
 echo "[+] Setting up hibernation..."
 
-sudo bash ./setup-hibernation.sh
+bash ./setup-hibernation.sh
 
 # =========================
 # SOFTWARES
 # =========================
 echo "[+] Installing additional softwares..."
 
-sudo bash ./setup-softwares.sh
+bash ./setup-softwares.sh
+
+# =========================
+# DAILY APT / MAINTENANCE
+# =========================
+echo "[+] Configuring daily APT and maintenance scripts..."
+
+bash ./setup-maintenance.sh
 
 # =========================
 # CLEANUP
@@ -46,10 +53,6 @@ echo "[+] Cleaning up..."
 sudo apt autoremove -y
 sudo apt autoclean
 
-# =========================
-# FIX PERMISSIONS
-# =========================
-sudo chown -R $USER:$USER "$HOME"
 
 echo "=== DONE ==="
 echo "[+] Setup completed successfully."

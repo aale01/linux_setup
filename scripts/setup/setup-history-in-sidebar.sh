@@ -1,8 +1,7 @@
 #!/bin/bash
 
-
-# Config directory fissa
-CONFIG_DIR="/home/alebe/.config/spicetify"
+# Config directory dell'utente corrente
+CONFIG_DIR="$HOME/.config/spicetify"
 CUSTOM_APPS_DIR="$CONFIG_DIR/CustomApps"
 APP_NAME="history-in-sidebar"
 
@@ -20,8 +19,8 @@ unzip -q "$ZIP_FILE" -d "$TMP_DIR"
 EXTRACTED_FOLDER=$(find "$TMP_DIR" -mindepth 1 -maxdepth 1 -type d | head -n 1)
 
 if [ -z "$EXTRACTED_FOLDER" ]; then
-  echo "Errore: zip non valido"
-  exit 1
+	echo "Errore: zip non valido"
+	exit 1
 fi
 
 # Crea CustomApps se non esiste

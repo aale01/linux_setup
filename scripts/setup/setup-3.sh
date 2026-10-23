@@ -19,6 +19,6 @@ fi
 
 echo "[+] Installing LazyVim packages..."
 # LazyVim package
-sudo bash ./setup-lazyvim-package.sh
+bash ./setup-lazyvim-package.sh
 
 exec ./setup-4.sh

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+LOG_FILE="/var/log/apt-manual-upgrade.log"
+
+{
+    echo
+    echo "=== Aggiornamento: $(date) ==="
+    echo
+
+    apt-get update && apt-get upgrade -y
+} 2>&1 | tee -a "$LOG_FILE"
+
+exit "${PIPESTATUS[0]}"

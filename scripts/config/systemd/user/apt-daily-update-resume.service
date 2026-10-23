@@ -1,0 +1,6 @@
+[Unit]
+Description=Controlla gli aggiornamenti dopo l'ibernazione
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/apt-daily-update.sh

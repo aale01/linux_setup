@@ -281,9 +281,9 @@ done
 # ==============================================================================
 section "STEP 6 — Groups"
 
-mapfile -t GROUPS < <(yq '.groups[]?' "$PACKAGES_FILE")
+mapfile -t USER_GROUPS < <(yq '.groups[]?' "$PACKAGES_FILE")
 
-for grp in "${GROUPS[@]}"; do
+for grp in "${USER_GROUPS[@]}"; do
 	if getent group "$grp" &>/dev/null; then
 		usermod -aG "$grp" "$REAL_USER" || true
 		ok "$REAL_USER -> $grp"

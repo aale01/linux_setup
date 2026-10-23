@@ -1,0 +1,63 @@
+.:
+total 16
+-rw-rw-r-- 1 alebe alebe 1803 Aug 29 22:38 grub
+-rw-rw-r-- 1 alebe alebe 1067 Aug 29 22:38 LICENSE
+-rw-rw-r-- 1 alebe alebe    0 Oct 23 17:32 project_structure
+-rw-rw-r-- 1 alebe alebe 3376 Aug 29 22:38 README.md
+drwxrwxr-x 6 alebe alebe 4096 Oct 23 15:06 scripts
+
+./scripts:
+total 24
+drwxrwxr-x 2 alebe alebe 4096 Oct 23 15:06 bin
+drwxrwxr-x 4 alebe alebe 4096 Oct 23 15:06 config
+-rwxrwxr-x 1 alebe alebe 1343 Aug 29 22:38 deb-install
+-rwxrwxr-x 1 alebe alebe 1234 Aug 29 22:38 monitoring.sh
+drwxrwxr-x 2 alebe alebe 4096 Oct 23 17:21 setup
+drwxrwxr-x 2 alebe alebe 4096 Oct 23 15:06 system
+
+./scripts/bin:
+total 8
+-rwxr-xr-x 1 alebe alebe 3804 Oct 23 14:36 apt-daily-update.sh
+-rwxr-xr-x 1 alebe alebe  453 Oct 23 14:36 clean-cache.sh
+
+./scripts/config:
+total 8
+drwxrwxr-x 2 alebe alebe 4096 Oct 23 15:06 autostart
+drwxrwxr-x 3 alebe alebe 4096 Oct 23 15:06 systemd
+
+./scripts/config/autostart:
+total 4
+-rw-rw-r-- 1 alebe alebe 232 Oct 23 14:36 apt-daily-update.desktop
+
+./scripts/config/systemd:
+total 4
+drwxrwxr-x 2 alebe alebe 4096 Oct 23 15:06 user
+
+./scripts/config/systemd/user:
+total 4
+-rw-rw-r-- 1 alebe alebe 134 Oct 23 15:06 apt-daily-update-resume.service
+
+./scripts/setup:
+total 84
+-rwxrwxr-x 1 alebe alebe   121 Aug 29 22:45 backup-again.sh
+-rw-rw-r-- 1 alebe alebe  1859 Oct 23 14:37 packages.yaml
+-rwxrwxr-x 1 alebe alebe  3989 Oct 23 17:21 setup-1.sh
+-rwxrwxr-x 1 alebe alebe   281 Aug 29 22:38 setup-2.sh
+-rwxrwxr-x 1 alebe alebe   808 Aug 29 22:38 setup-3.sh
+-rwxrwxr-x 1 alebe alebe  1000 Aug 29 22:38 setup-4.sh
+-rwxrwxr-x 1 alebe alebe  1473 Oct 23 14:39 setup-5.sh
+-rwxrwxr-x 1 alebe alebe  3295 Aug 29 22:38 setup-hibernation.sh
+-rwxrwxr-x 1 alebe alebe   983 Aug 29 22:38 setup-history-in-sidebar.sh
+-rwxrwxr-x 1 alebe alebe   507 Aug 29 22:38 setup-lazyvim-package.sh
+-rwxr-xr-x 1 alebe alebe  2802 Oct 23 17:20 setup-maintenance.sh
+-rwxrwxr-x 1 alebe alebe  9214 Aug 29 22:52 setup-packages.sh
+-rwxrwxr-x 1 alebe alebe 10408 Aug 29 22:38 setup-softwares.sh
+-rwxrwxr-x 1 alebe alebe   345 Aug 29 22:38 setup-spicetify.sh
+-rwxrwxr-x 1 alebe alebe   801 Aug 29 22:38 setup-spotify.sh
+-rwxrwxr-x 1 alebe alebe    78 Aug 29 22:38 uninstall-spiceticy.sh
+-rwxrwxr-x 1 alebe alebe   590 Aug 29 22:38 uninstall-spotify.sh
+
+./scripts/system:
+total 8
+-rwxr-xr-x 1 alebe alebe 537 Oct 23 14:36 apt-update-resume-hook
+-rwxr-xr-x 1 alebe alebe 214 Oct 23 14:36 apt-update-upgrade

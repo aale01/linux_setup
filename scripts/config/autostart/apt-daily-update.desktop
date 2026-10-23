@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Aggiornamenti giornalieri APT
+Comment=Chiede se aggiornare i pacchetti una volta al giorno
+Exec=/bin/bash -c "$HOME/.local/bin/apt-daily-update.sh"
+Terminal=false
+X-GNOME-Autostart-enabled=true
